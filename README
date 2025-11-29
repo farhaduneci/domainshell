@@ -14,7 +14,7 @@ Features
 
 Installation
 
-  go install github.com/yourusername/domainshell/cmd/domainshell@latest
+  go install github.com/farhaduneci/domainshell/cmd/domainshell@latest
 
 Or build from source:
 
