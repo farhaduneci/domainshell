@@ -1,0 +1,59 @@
+domainshell
+
+A terminal REPL for domain availability checks. Stay in your shell, query domains.
+
+Features
+
+  • Interactive REPL with command history
+  • Domain availability checking
+  • Domain suggestions
+  • Color-coded output (green = available, red = taken)
+  • Price information (Toman/year)
+  • Premium and on-sale indicators
+  • Tab completion for commands and domains
+
+Installation
+
+  go install github.com/yourusername/domainshell/cmd/domainshell@latest
+
+Or build from source:
+
+  git clone https://github.com/farhaduneci/domainshell.git
+  cd domainshell
+  make build
+
+Usage
+
+  domainshell
+
+Once inside the REPL:
+
+  domain → example.com
+  domain → search example.com
+  domain → suggest example
+  domain → history
+  domain → help
+  domain → exit
+
+You can also just type a domain name directly - it defaults to search.
+
+Commands
+
+  <domain>           Check availability (default action)
+  search <domain>    Check domain availability
+  suggest <domain>   Get domain suggestions
+  history            Show command history
+  help               Show help message
+  exit, quit         Exit the program
+
+Requirements
+
+  • Go 1.25+
+
+Credits
+
+  Domain data powered by Limoo Host API (https://limoo.host/domain/).
+
+License
+
+  MIT
