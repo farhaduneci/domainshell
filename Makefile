@@ -1,7 +1,7 @@
 APP_NAME=domainshell
 BUILD_DIR=bin
 
-.PHONY: all build build-all clean test install fmt vet lint
+.PHONY: all build build-all clean test install fmt vet lint version tag-release
 
 all: fmt vet build
 
@@ -37,3 +37,15 @@ clean:
 
 install: build
 	mv $(APP_NAME) $(GOPATH)/bin/$(APP_NAME)
+
+version:
+	@echo "Current version: $$(git describe --tags --always --dirty 2>/dev/null || echo 'dev')"
+
+tag-release:
+	@if [ -z "$(VERSION)" ]; then \
+		echo "Usage: make tag-release VERSION=v1.0.0"; \
+		exit 1; \
+	fi
+	@echo "Creating tag $(VERSION)..."
+	git tag -a v$(VERSION) -m "Release $(VERSION)"
+	@echo "Tag v$(VERSION) created. Push with: git push origin v$(VERSION)"
